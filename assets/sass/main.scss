@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
+@import 'reset';
+@import 'variables';
+@import 'listings';
+@import 'content-area';
+
+html {
+  font-size: 62.25%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  // background: purple;
+  font-size: 1.6rem;
+}
