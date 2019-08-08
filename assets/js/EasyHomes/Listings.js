@@ -195,10 +195,10 @@ export default class Header extends Component {
           </div>
         </section>
 
-        <section className='listings__pagination'>
-          <ul className='pagination-pages'>
+        <section id='listings__pagination'>
+          <ul className='pagination__pages'>
             <li>Prev</li>
-            <li>1</li>
+            <li className='active'>1</li>
             <li>2</li>
             <li>3</li>
             <li>4</li>

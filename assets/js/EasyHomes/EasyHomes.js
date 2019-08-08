@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom';
 import Header from './Header';
 import Listings from './Listings';
 import Filter from './Filter';
+import listingData from './data/listingsData';
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      listingData
+    };
   }
 
   render() {
+    console.log(this.state.listingData);
     return (
       <div>
         <Header />
