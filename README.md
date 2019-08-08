@@ -2,7 +2,7 @@
 
 [Easy Homes ](https://cagl18.github.io/easy-homes/)
 
-A real estate app build using React JS.
+A real estate app built using React JS.
 
 ## Getting Started
 
@@ -47,7 +47,6 @@ Enjoy :)
 ## Built With
 
 - [SASS](https://sass-lang.com/) - CSS Pre-Processor
-- JavaScript
 - [React](https://reactjs.org/) - The JavaScript framework used
 
 ## Contributors

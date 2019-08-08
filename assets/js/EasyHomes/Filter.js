@@ -27,8 +27,8 @@ export default class Filter extends Component {
             <input className='max-price' type='text' name='max-price' />
           </div>
 
-          <div className='filters floor-space'>
-            <span className='title'>Floor Space</span>
+          <div className='filters square-space'>
+            <span className='title'>Square Space</span>
             <input
               className='min-floor-space'
               type='text'

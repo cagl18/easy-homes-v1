@@ -3,9 +3,15 @@
 @import 'variables';
 @import 'listings';
 @import 'content-area';
+@import 'grid';
+
+* {
+  box-sizing: border-box;
+}
 
 html {
   font-size: 62.25%;
+  letter-spacing: 0.15rem;
 }
 
 body {

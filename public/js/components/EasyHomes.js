@@ -32,13 +32,7 @@ var Filter = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Filter.__proto__ || Object.getPrototypeOf(Filter)).call(this));
 
-    _this.clickedBtn = function () {
-      console.log('swag');
-    };
-
-    _this.state = {
-      name: 'Joe'
-    };
+    _this.state = {};
     return _this;
   }
 
@@ -96,11 +90,11 @@ var Filter = function (_Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'filters floor-space' },
+            { className: 'filters square-space' },
             _react2.default.createElement(
               'span',
               { className: 'title' },
-              'Floor Space'
+              'Square Space'
             ),
             _react2.default.createElement('input', {
               className: 'min-floor-space',
@@ -198,13 +192,7 @@ var Header = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this));
 
-    _this.clickedBtn = function () {
-      console.log('swag');
-    };
-
-    _this.state = {
-      name: 'Joe'
-    };
+    _this.state = {};
     return _this;
   }
 
@@ -224,22 +212,22 @@ var Header = function (_Component) {
           null,
           _react2.default.createElement(
             'a',
-            { href: '#' },
+            { href: '#create-ads' },
             'Create Ads'
           ),
           _react2.default.createElement(
             'a',
-            { href: '#' },
+            { href: '#about' },
             'About Us'
           ),
           _react2.default.createElement(
             'a',
-            { href: '#' },
+            { href: '#login' },
             'log in'
           ),
           _react2.default.createElement(
             'a',
-            { href: '#', className: 'register-btn' },
+            { href: '#register', className: 'register-btn' },
             'Register'
           )
         )
@@ -286,13 +274,7 @@ var Header = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this));
 
-    _this.clickedBtn = function () {
-      console.log('swag');
-    };
-
-    _this.state = {
-      name: 'Joe'
-    };
+    _this.state = {};
     return _this;
   }
 
@@ -302,7 +284,459 @@ var Header = function (_Component) {
       return _react2.default.createElement(
         'section',
         { className: 'listings' },
-        'Listings'
+        _react2.default.createElement(
+          'section',
+          { className: 'listings__search-area' },
+          _react2.default.createElement('input', { type: 'text', name: 'search', placeholder: 'Search Address' })
+        ),
+        _react2.default.createElement(
+          'section',
+          { className: 'listings__view' },
+          _react2.default.createElement(
+            'div',
+            { className: 'listings__found' },
+            ' 390 results found'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'listings__view-options' },
+            _react2.default.createElement(
+              'select',
+              { className: 'listings__sortby' },
+              _react2.default.createElement(
+                'option',
+                { value: 'sortby__price-asc' },
+                'Highest Price'
+              ),
+              _react2.default.createElement(
+                'option',
+                { value: 'sortby__price-des' },
+                'Lowest Price'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'listings__grid_options' },
+              _react2.default.createElement('i', { className: 'fa fa-th-list', 'aria-hidden': 'true' }),
+              _react2.default.createElement('i', { className: 'fa fa-th', 'aria-hidden': 'true' })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'section',
+          { className: 'listings__results' },
+          _react2.default.createElement(
+            'div',
+            { className: 'col-md-3' },
+            _react2.default.createElement(
+              'div',
+              { className: 'listing' },
+              _react2.default.createElement(
+                'div',
+                { className: 'listing__img-box' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'listing__details' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'listing__details_agent' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__agent_img' },
+                      ' '
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__agent_info' },
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'listing__agent_name' },
+                        'Martina Smith'
+                      ),
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'listing__posted_date' },
+                        'Posted on 05/05/2017'
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'listing__details_on_img' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__square_space' },
+                      _react2.default.createElement('i', { className: 'fa fa-square-o', 'aria-hidden': 'true' }),
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        '1000 ft\xB2'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__bedrooms' },
+                      _react2.default.createElement('i', { className: 'fa fa-bed', 'aria-hidden': 'true' }),
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        '3 bedrooms'
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'listing__view' },
+                    _react2.default.createElement(
+                      'a',
+                      { href: '', className: 'listing__view-btn' },
+                      'View Listing'
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'listing__title' },
+                  'House in the Hamptons'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'listing__details_footer' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'listing__price' },
+                  '$1000 /month'
+                ),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'listing__location' },
+                  _react2.default.createElement('i', { className: 'fa fa-map-marker', 'aria-hidden': 'true' }),
+                  ' NY, New York'
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-md-3' },
+            _react2.default.createElement(
+              'div',
+              { className: 'listing' },
+              _react2.default.createElement(
+                'div',
+                { className: 'listing__img-box' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'listing__details' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'listing__details_agent' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__agent_img' },
+                      ' '
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__agent_info' },
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'listing__agent_name' },
+                        'Martina Smith'
+                      ),
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'listing__posted_date' },
+                        'Posted on 05/05/2017'
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'listing__details_on_img' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__square_space' },
+                      _react2.default.createElement('i', { className: 'fa fa-square-o', 'aria-hidden': 'true' }),
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        '1000 ft\xB2'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__bedrooms' },
+                      _react2.default.createElement('i', { className: 'fa fa-bed', 'aria-hidden': 'true' }),
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        '3 bedrooms'
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'listing__view' },
+                    _react2.default.createElement(
+                      'a',
+                      { href: '', className: 'listing__view-btn' },
+                      'View Listing'
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'listing__title' },
+                  'House in the Hamptons'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'listing__details_footer' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'listing__price' },
+                  '$1000 /month'
+                ),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'listing__location' },
+                  _react2.default.createElement('i', { className: 'fa fa-map-marker', 'aria-hidden': 'true' }),
+                  ' NY, New York'
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-md-3' },
+            _react2.default.createElement(
+              'div',
+              { className: 'listing' },
+              _react2.default.createElement(
+                'div',
+                { className: 'listing__img-box' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'listing__details' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'listing__details_agent' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__agent_img' },
+                      ' '
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__agent_info' },
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'listing__agent_name' },
+                        'Martina Smith'
+                      ),
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'listing__posted_date' },
+                        'Posted on 05/05/2017'
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'listing__details_on_img' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__square_space' },
+                      _react2.default.createElement('i', { className: 'fa fa-square-o', 'aria-hidden': 'true' }),
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        '1000 ft\xB2'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__bedrooms' },
+                      _react2.default.createElement('i', { className: 'fa fa-bed', 'aria-hidden': 'true' }),
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        '3 bedrooms'
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'listing__view' },
+                    _react2.default.createElement(
+                      'a',
+                      { href: '', className: 'listing__view-btn' },
+                      'View Listing'
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'listing__title' },
+                  'House in the Hamptons'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'listing__details_footer' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'listing__price' },
+                  '$1000 /month'
+                ),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'listing__location' },
+                  _react2.default.createElement('i', { className: 'fa fa-map-marker', 'aria-hidden': 'true' }),
+                  ' NY, New York'
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-md-3' },
+            _react2.default.createElement(
+              'div',
+              { className: 'listing' },
+              _react2.default.createElement(
+                'div',
+                { className: 'listing__img-box' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'listing__details' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'listing__details_agent' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__agent_img' },
+                      ' '
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__agent_info' },
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'listing__agent_name' },
+                        'Martina Smith'
+                      ),
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'listing__posted_date' },
+                        'Posted on 05/05/2017'
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'listing__details_on_img' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__square_space' },
+                      _react2.default.createElement('i', { className: 'fa fa-square-o', 'aria-hidden': 'true' }),
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        '1000 ft\xB2'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing__bedrooms' },
+                      _react2.default.createElement('i', { className: 'fa fa-bed', 'aria-hidden': 'true' }),
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        '3 bedrooms'
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'listing__view' },
+                    _react2.default.createElement(
+                      'a',
+                      { href: '', className: 'listing__view-btn' },
+                      'View Listing'
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'listing__title' },
+                  'House in the Hamptons'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'listing__details_footer' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'listing__price' },
+                  '$1000 /month'
+                ),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'listing__location' },
+                  _react2.default.createElement('i', { className: 'fa fa-map-marker', 'aria-hidden': 'true' }),
+                  ' NY, New York'
+                )
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'section',
+          { className: 'listings__pagination' },
+          _react2.default.createElement(
+            'ul',
+            { className: 'pagination-pages' },
+            _react2.default.createElement(
+              'li',
+              null,
+              'Prev'
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              '1'
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              '2'
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              '3'
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              '4'
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              '5'
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              'Next'
+            )
+          )
+        )
       );
     }
   }]);
@@ -358,13 +792,7 @@ var App = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
-    _this.clickedBtn = function () {
-      console.log('swag');
-    };
-
-    _this.state = {
-      name: 'Joe'
-    };
+    _this.state = {};
     return _this;
   }
 
