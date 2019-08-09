@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import Listing from './Listing';
 
 export default class Header extends Component {
   constructor() {
     super();
     this.state = {};
+    this.displayListings = this.displayListings.bind(this);
+  }
+
+  displayListings() {
+    return this.props.data.map((listing, index) => {
+      return <Listing key={index} data={listing} />;
+    });
   }
 
   render() {
@@ -29,170 +37,7 @@ export default class Header extends Component {
         </section>
 
         <section className='listings__results'>
-          <div className='col-md-3'>
-            <div className='listing'>
-              <div className='listing__img-box'>
-                <div className='listing__details'>
-                  <div className='listing__details_agent'>
-                    <div className='listing__agent_img'> </div>
-                    <div className='listing__agent_info'>
-                      <span className='listing__agent_name'>Martina Smith</span>
-                      <span className='listing__posted_date'>
-                        Posted on 05/05/2017
-                      </span>
-                    </div>
-                  </div>
-                  <div className='listing__details_on_img'>
-                    <div className='listing__square_space'>
-                      <i className='fa fa-square-o' aria-hidden='true' />
-                      <span>1000 ft&sup2;</span>
-                    </div>
-                    <div className='listing__bedrooms'>
-                      <i className='fa fa-bed' aria-hidden='true' />
-                      <span>3 bedrooms</span>
-                    </div>
-                  </div>
-                  <div className='listing__view'>
-                    <a href='' className='listing__view-btn'>
-                      View Listing
-                    </a>
-                  </div>
-                </div>
-
-                <span className='listing__title'>House in the Hamptons</span>
-              </div>
-              <div className='listing__details_footer'>
-                <span className='listing__price'>$1000 /month</span>
-                <span className='listing__location'>
-                  <i className='fa fa-map-marker' aria-hidden='true' /> NY, New
-                  York
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className='col-md-3'>
-            <div className='listing'>
-              <div className='listing__img-box'>
-                <div className='listing__details'>
-                  <div className='listing__details_agent'>
-                    <div className='listing__agent_img'> </div>
-                    <div className='listing__agent_info'>
-                      <span className='listing__agent_name'>Martina Smith</span>
-                      <span className='listing__posted_date'>
-                        Posted on 05/05/2017
-                      </span>
-                    </div>
-                  </div>
-                  <div className='listing__details_on_img'>
-                    <div className='listing__square_space'>
-                      <i className='fa fa-square-o' aria-hidden='true' />
-                      <span>1000 ft&sup2;</span>
-                    </div>
-                    <div className='listing__bedrooms'>
-                      <i className='fa fa-bed' aria-hidden='true' />
-                      <span>3 bedrooms</span>
-                    </div>
-                  </div>
-                  <div className='listing__view'>
-                    <a href='' className='listing__view-btn'>
-                      View Listing
-                    </a>
-                  </div>
-                </div>
-
-                <span className='listing__title'>House in the Hamptons</span>
-              </div>
-              <div className='listing__details_footer'>
-                <span className='listing__price'>$1000 /month</span>
-                <span className='listing__location'>
-                  <i className='fa fa-map-marker' aria-hidden='true' /> NY, New
-                  York
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className='col-md-3'>
-            <div className='listing'>
-              <div className='listing__img-box'>
-                <div className='listing__details'>
-                  <div className='listing__details_agent'>
-                    <div className='listing__agent_img'> </div>
-                    <div className='listing__agent_info'>
-                      <span className='listing__agent_name'>Martina Smith</span>
-                      <span className='listing__posted_date'>
-                        Posted on 05/05/2017
-                      </span>
-                    </div>
-                  </div>
-                  <div className='listing__details_on_img'>
-                    <div className='listing__square_space'>
-                      <i className='fa fa-square-o' aria-hidden='true' />
-                      <span>1000 ft&sup2;</span>
-                    </div>
-                    <div className='listing__bedrooms'>
-                      <i className='fa fa-bed' aria-hidden='true' />
-                      <span>3 bedrooms</span>
-                    </div>
-                  </div>
-                  <div className='listing__view'>
-                    <a href='' className='listing__view-btn'>
-                      View Listing
-                    </a>
-                  </div>
-                </div>
-
-                <span className='listing__title'>House in the Hamptons</span>
-              </div>
-              <div className='listing__details_footer'>
-                <span className='listing__price'>$1000 /month</span>
-                <span className='listing__location'>
-                  <i className='fa fa-map-marker' aria-hidden='true' /> NY, New
-                  York
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className='col-md-3'>
-            <div className='listing'>
-              <div className='listing__img-box'>
-                <div className='listing__details'>
-                  <div className='listing__details_agent'>
-                    <div className='listing__agent_img'> </div>
-                    <div className='listing__agent_info'>
-                      <span className='listing__agent_name'>Martina Smith</span>
-                      <span className='listing__posted_date'>
-                        Posted on 05/05/2017
-                      </span>
-                    </div>
-                  </div>
-                  <div className='listing__details_on_img'>
-                    <div className='listing__square_space'>
-                      <i className='fa fa-square-o' aria-hidden='true' />
-                      <span>1000 ft&sup2;</span>
-                    </div>
-                    <div className='listing__bedrooms'>
-                      <i className='fa fa-bed' aria-hidden='true' />
-                      <span>3 bedrooms</span>
-                    </div>
-                  </div>
-                  <div className='listing__view'>
-                    <a href='' className='listing__view-btn'>
-                      View Listing
-                    </a>
-                  </div>
-                </div>
-
-                <span className='listing__title'>House in the Hamptons</span>
-              </div>
-              <div className='listing__details_footer'>
-                <span className='listing__price'>$1000 /month</span>
-                <span className='listing__location'>
-                  <i className='fa fa-map-marker' aria-hidden='true' /> NY, New
-                  York
-                </span>
-              </div>
-            </div>
-          </div>
+          {this.displayListings()}
         </section>
 
         <section id='listings__pagination'>
