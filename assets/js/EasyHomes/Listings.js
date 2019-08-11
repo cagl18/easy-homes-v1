@@ -9,7 +9,15 @@ export default class Header extends Component {
   }
 
   displayListings() {
-    return this.props.data.map((listing, index) => {
+    const dataArr = this.props.data;
+    if (dataArr === undefined || dataArr.length === 0) {
+      return (
+        <p className='listings__found'>
+          Sorry, your filters did not match any listings
+        </p>
+      );
+    }
+    return dataArr.map((listing, index) => {
       return <Listing key={index} data={listing} />;
     });
   }

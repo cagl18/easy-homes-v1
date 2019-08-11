@@ -5,6 +5,7 @@
   background: $color-white;
 
   &__search-area {
+    padding-left: 2rem;
     & input[type='text'] {
       width: 70%;
       border: none;
@@ -21,6 +22,7 @@
     margin-bottom: 2rem;
 
     &-options {
+      padding-right: 1.2rem;
       float: right;
 
       & .listings__sortby {
@@ -43,6 +45,7 @@
   }
 
   &__found {
+    padding-left: 2rem;
     color: $color-grey-dark-2;
     font-size: 1.3rem;
     display: inline-block;
