@@ -4,6 +4,57 @@ export default class Filter extends Component {
   constructor() {
     super();
     this.state = {};
+    this.cities = this.cities.bind(this);
+    this.property_types = this.property_types.bind(this);
+    this.bedrooms = this.bedrooms.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.populateDefaultValues();
+    console.log('[Filters.js] componentWillMount');
+  }
+
+  cities() {
+    const { cities } = this.props.globalState.populateFormsData;
+
+    if (cities !== undefined) {
+      cities.sort();
+      return cities.map(city => {
+        return (
+          <option key={city} value={city}>
+            {city}
+          </option>
+        );
+      });
+    }
+  }
+  property_types() {
+    const { property_types } = this.props.globalState.populateFormsData;
+
+    if (property_types !== undefined) {
+      property_types.sort();
+      return property_types.map(property_type => {
+        return (
+          <option key={property_type} value={property_type}>
+            {property_type}
+          </option>
+        );
+      });
+    }
+  }
+  bedrooms() {
+    const { bedrooms } = this.props.globalState.populateFormsData;
+
+    if (bedrooms !== undefined) {
+      bedrooms.sort();
+      return bedrooms.map(bedroom => {
+        return (
+          <option key={bedroom} value={bedroom}>
+            {`${bedroom}+ Bedrooms`}
+          </option>
+        );
+      });
+    }
   }
 
   render() {
@@ -18,13 +69,7 @@ export default class Filter extends Component {
             onChange={this.props.change}
           >
             <option value='All'>All</option>
-            <option value='New York'>New York</option>
-            <option value='San Diego'>San Diego</option>
-            <option value='Miami'>Miami</option>
-            <option value='Brooklyn'>Brooklyn</option>
-            <option value='Bronx'>Bronx</option>
-            <option value='San Fransisco'>San Fransisco</option>
-            <option value='Queens'>Queens</option>
+            {this.cities()}
           </select>
           <label htmlFor='property_type'>Property Type</label>
           <select
@@ -33,11 +78,7 @@ export default class Filter extends Component {
             onChange={this.props.change}
           >
             <option value='All'>All properties</option>
-            <option value='Apartment'>Apartment</option>
-            <option value='Condo'>Condo</option>
-            <option value='House'>House</option>
-            <option value='Townhouse'>Townhouse</option>
-            <option value='Retail'>Retail</option>
+            {this.property_types()}
           </select>
           <label htmlFor='bedrooms'>Property Type</label>
           <select
@@ -45,12 +86,7 @@ export default class Filter extends Component {
             className='filters bedrooms'
             onChange={this.props.change}
           >
-            <option value='0'>0+ Bedroom</option>
-            <option value='1'>1+ Bedrooms</option>
-            <option value='2'>2+ Bedrooms</option>
-            <option value='3'>3+ Bedrooms</option>
-            <option value='4'>4+ Bedrooms</option>
-            <option value='5'>5+ Bedrooms</option>
+            {this.bedrooms()}
           </select>
 
           <div className='filters price'>

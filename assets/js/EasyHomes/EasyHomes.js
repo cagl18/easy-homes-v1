@@ -21,10 +21,12 @@ class App extends Component {
       finished_basement: false,
       gym: false,
       swimming_pool: false,
-      filtered_data: listing_data
+      filtered_data: listing_data,
+      populateFormsData: ''
     };
     this.changeFilters = this.changeFilters.bind(this);
     this.setFilteredData = this.setFilteredData.bind(this);
+    this.populateForms = this.populateForms.bind(this);
   }
 
   changeFilters(event) {
@@ -40,6 +42,42 @@ class App extends Component {
       () => {
         console.log(this.state);
         this.setFilteredData();
+      }
+    );
+  }
+
+  populateForms() {
+    // city
+    let cities = this.state.listing_data.map(item => {
+      return item.city;
+    });
+    cities = new Set(cities); // ensuring there are not duplicates
+    cities = [...cities];
+
+    // home_type
+    let property_types = this.state.listing_data.map(item => {
+      return item.property_type;
+    });
+    property_types = new Set(property_types);
+    property_types = [...property_types];
+
+    // bedrooms
+    let bedrooms = this.state.listing_data.map(item => {
+      return item.bedrooms;
+    });
+    bedrooms = new Set(bedrooms);
+    bedrooms = [...bedrooms];
+
+    this.setState(
+      {
+        populateFormsData: {
+          cities,
+          property_types,
+          bedrooms
+        }
+      },
+      () => {
+        console.log(this.state.populateFormsData);
       }
     );
   }
@@ -78,7 +116,11 @@ class App extends Component {
       <div>
         <Header />
         <section id='content-area'>
-          <Filter change={this.changeFilters} globalState={this.state} />
+          <Filter
+            change={this.changeFilters}
+            globalState={this.state}
+            populateDefaultValues={this.populateForms}
+          />
           <Listings data={this.state.filtered_data} />
         </section>
       </div>
