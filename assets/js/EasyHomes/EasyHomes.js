@@ -12,7 +12,7 @@ class App extends Component {
       listing_data,
       city: 'All',
       property_type: 'All',
-      bedrooms: 3,
+      bedrooms: 0,
       min_price: 0,
       max_price: 10000000,
       min_floor_space: 0,
@@ -22,11 +22,17 @@ class App extends Component {
       gym: false,
       swimming_pool: false,
       filtered_data: listing_data,
-      populateFormsData: ''
+      populateFormsData: '',
+      sort_by: 'price-asc'
     };
     this.changeFilters = this.changeFilters.bind(this);
     this.setFilteredData = this.setFilteredData.bind(this);
     this.populateForms = this.populateForms.bind(this);
+    // this.toogleResultSort = this.toogleResultSort.bind(this);
+  }
+
+  componentWillMount() {
+    this.setFilteredData(); //sorting listing result by the sort_by state before component renders
   }
 
   changeFilters(event) {
@@ -105,6 +111,18 @@ class App extends Component {
       });
     }
 
+    if (this.state.sort_by === 'price-des') {
+      newData = newData.sort((a, b) => {
+        return b.price - a.price;
+      });
+    }
+
+    if (this.state.sort_by === 'price-asc') {
+      newData = newData.sort((a, b) => {
+        return a.price - b.price;
+      });
+    }
+
     this.setState({
       filtered_data: newData
     });
@@ -121,7 +139,10 @@ class App extends Component {
             globalState={this.state}
             populateDefaultValues={this.populateForms}
           />
-          <Listings data={this.state.filtered_data} />
+          <Listings
+            data={this.state.filtered_data}
+            sort_listings={this.changeFilters}
+          />
         </section>
       </div>
     );

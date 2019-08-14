@@ -436,16 +436,20 @@ var Header = function (_Component) {
             { className: 'listings__view-options' },
             _react2.default.createElement(
               'select',
-              { className: 'listings__sortby' },
+              {
+                name: 'sort_by',
+                className: 'listings__sortby',
+                onChange: this.props.sort_listings
+              },
               _react2.default.createElement(
                 'option',
-                { value: 'sortby__price-asc' },
-                'Highest Price'
+                { value: 'price-asc' },
+                'Lowest Price'
               ),
               _react2.default.createElement(
                 'option',
-                { value: 'sortby__price-des' },
-                'Lowest Price'
+                { value: 'price-des' },
+                'Highest Price'
               )
             ),
             _react2.default.createElement(
@@ -706,7 +710,7 @@ var App = function (_Component) {
       listing_data: _listingsData2.default,
       city: 'All',
       property_type: 'All',
-      bedrooms: 3,
+      bedrooms: 0,
       min_price: 0,
       max_price: 10000000,
       min_floor_space: 0,
@@ -716,15 +720,22 @@ var App = function (_Component) {
       gym: false,
       swimming_pool: false,
       filtered_data: _listingsData2.default,
-      populateFormsData: ''
+      populateFormsData: '',
+      sort_by: 'price-asc'
     };
     _this.changeFilters = _this.changeFilters.bind(_this);
     _this.setFilteredData = _this.setFilteredData.bind(_this);
     _this.populateForms = _this.populateForms.bind(_this);
+    // this.toogleResultSort = this.toogleResultSort.bind(this);
     return _this;
   }
 
   _createClass(App, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.setFilteredData(); //sorting listing result by the sort_by state before component renders
+    }
+  }, {
     key: 'changeFilters',
     value: function changeFilters(event) {
       var _this2 = this;
@@ -793,6 +804,18 @@ var App = function (_Component) {
         });
       }
 
+      if (this.state.sort_by === 'price-des') {
+        newData = newData.sort(function (a, b) {
+          return b.price - a.price;
+        });
+      }
+
+      if (this.state.sort_by === 'price-asc') {
+        newData = newData.sort(function (a, b) {
+          return a.price - b.price;
+        });
+      }
+
       this.setState({
         filtered_data: newData
       });
@@ -813,7 +836,10 @@ var App = function (_Component) {
             globalState: this.state,
             populateDefaultValues: this.populateForms
           }),
-          _react2.default.createElement(_Listings2.default, { data: this.state.filtered_data })
+          _react2.default.createElement(_Listings2.default, {
+            data: this.state.filtered_data,
+            sort_listings: this.changeFilters
+          })
         )
       );
     }

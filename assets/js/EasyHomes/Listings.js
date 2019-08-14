@@ -33,9 +33,13 @@ export default class Header extends Component {
           <div className='listings__found'> 390 results found</div>
 
           <div className='listings__view-options'>
-            <select className='listings__sortby'>
-              <option value='sortby__price-asc'>Highest Price</option>
-              <option value='sortby__price-des'>Lowest Price</option>
+            <select
+              name='sort_by'
+              className='listings__sortby'
+              onChange={this.props.sort_listings}
+            >
+              <option value='price-asc'>Lowest Price</option>
+              <option value='price-des'>Highest Price</option>
             </select>
             <div className='listings__grid_options'>
               <i className='fa fa-th-list' aria-hidden='true' />
