@@ -23,12 +23,13 @@ class App extends Component {
       swimming_pool: false,
       filtered_data: listing_data,
       populateFormsData: '',
-      sort_by: 'price-asc'
+      sort_by: 'price-asc',
+      view_mode: 'grid'
     };
     this.changeFilters = this.changeFilters.bind(this);
     this.setFilteredData = this.setFilteredData.bind(this);
     this.populateForms = this.populateForms.bind(this);
-    // this.toogleResultSort = this.toogleResultSort.bind(this);
+    this.changeViewMode = this.changeViewMode.bind(this);
   }
 
   componentWillMount() {
@@ -50,6 +51,10 @@ class App extends Component {
         this.setFilteredData();
       }
     );
+  }
+
+  changeViewMode(view_mode) {
+    this.setState({ view_mode });
   }
 
   populateForms() {
@@ -142,6 +147,8 @@ class App extends Component {
           <Listings
             data={this.state.filtered_data}
             sort_listings={this.changeFilters}
+            globalState={this.state}
+            changeView={this.changeViewMode}
           />
         </section>
       </div>

@@ -18,7 +18,21 @@ export default class Header extends Component {
       );
     }
     return dataArr.map((listing, index) => {
-      return <Listing key={index} data={listing} />;
+      if (this.props.globalState.view_mode === 'grid') {
+        //THIS IS THE GRID VIEW
+        return (
+          <div className='col-md-3'>
+            <Listing key={index} data={listing} />
+          </div>
+        );
+      } else {
+        //THIS IS THE LIST VIEW
+        return (
+          <div className='col-md-12 col-lg-6'>
+            <Listing key={index} data={listing} />
+          </div>
+        );
+      }
     });
   }
 
@@ -42,8 +56,16 @@ export default class Header extends Component {
               <option value='price-des'>Highest Price</option>
             </select>
             <div className='listings__grid_options'>
-              <i className='fa fa-th-list' aria-hidden='true' />
-              <i className='fa fa-th' aria-hidden='true' />
+              <i
+                className='fa fa-th-list'
+                aria-hidden='true'
+                onClick={this.props.changeView.bind(null, 'list')}
+              />
+              <i
+                className='fa fa-th'
+                aria-hidden='true'
+                onClick={this.props.changeView.bind(null, 'grid')}
+              />
             </div>
           </div>
         </section>
