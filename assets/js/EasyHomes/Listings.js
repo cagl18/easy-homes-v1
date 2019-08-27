@@ -40,7 +40,12 @@ export default class Header extends Component {
     return (
       <section className='listings'>
         <section className='listings__search-area'>
-          <input type='text' name='search' placeholder='Search Address' />
+          <input
+            onChange={this.props.onFilterChange}
+            type='text'
+            name='search'
+            placeholder='Search Address'
+          />
         </section>
 
         <section className='listings__view'>
@@ -50,7 +55,7 @@ export default class Header extends Component {
             <select
               name='sort_by'
               className='listings__sortby'
-              onChange={this.props.sort_listings}
+              onChange={this.props.onFilterChange}
             >
               <option value='price-asc'>Lowest Price</option>
               <option value='price-des'>Highest Price</option>

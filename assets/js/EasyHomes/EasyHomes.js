@@ -24,7 +24,8 @@ class App extends Component {
       filtered_data: listing_data,
       populateFormsData: '',
       sort_by: 'price-asc',
-      view_mode: 'grid'
+      view_mode: 'grid',
+      search: ''
     };
     this.changeFilters = this.changeFilters.bind(this);
     this.setFilteredData = this.setFilteredData.bind(this);
@@ -128,6 +129,22 @@ class App extends Component {
       });
     }
 
+    if (this.state.search != '') {
+      newData = newData.filter(listing => {
+        let searchText = this.state.search.toLowerCase();
+
+        let city = listing.city.toLowerCase();
+        let doesCityMatches = city.match(searchText);
+
+        let title = listing.title.toLowerCase();
+        let doesTitleMatches = title.match(searchText);
+
+        if (doesCityMatches !== null || doesTitleMatches !== null) {
+          return true;
+        }
+      });
+    }
+
     this.setState({
       filtered_data: newData
     });
@@ -146,7 +163,7 @@ class App extends Component {
           />
           <Listings
             data={this.state.filtered_data}
-            sort_listings={this.changeFilters}
+            onFilterChange={this.changeFilters}
             globalState={this.state}
             changeView={this.changeViewMode}
           />
