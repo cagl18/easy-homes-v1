@@ -129,6 +129,27 @@ class App extends Component {
       });
     }
 
+    if (this.state.finished_basement) {
+      newData = newData.filter(listing =>
+        listing.amenities.includes('finished_basement')
+      );
+    }
+    if (this.state.gym) {
+      newData = newData.filter(listing => listing.amenities.includes('gym'));
+    }
+
+    if (this.state.swimming_pool) {
+      newData = newData.filter(listing =>
+        listing.amenities.includes('swimming_pool')
+      );
+    }
+
+    if (this.state.elevator) {
+      newData = newData.filter(listing =>
+        listing.amenities.includes('elevator')
+      );
+    }
+
     if (this.state.search != '') {
       newData = newData.filter(listing => {
         let searchText = this.state.search.toLowerCase();

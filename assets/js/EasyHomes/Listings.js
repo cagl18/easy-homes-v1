@@ -49,7 +49,9 @@ export default class Header extends Component {
         </section>
 
         <section className='listings__view'>
-          <div className='listings__found'> 390 results found</div>
+          <div className='listings__found'>
+            {this.props.globalState.filtered_data.length} results found
+          </div>
 
           <div className='listings__view-options'>
             <select
@@ -75,9 +77,11 @@ export default class Header extends Component {
           </div>
         </section>
 
-        <section className='listings__results'>
-          {this.displayListings()}
-        </section>
+        <div className='row'>
+          <section className='listings__results'>
+            {this.displayListings()}
+          </section>
+        </div>
 
         <section id='listings__pagination'>
           <ul className='pagination__pages'>

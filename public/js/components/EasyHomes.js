@@ -450,7 +450,8 @@ var Header = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: 'listings__found' },
-            ' 390 results found'
+            this.props.globalState.filtered_data.length,
+            ' results found'
           ),
           _react2.default.createElement(
             'div',
@@ -490,9 +491,13 @@ var Header = function (_Component) {
           )
         ),
         _react2.default.createElement(
-          'section',
-          { className: 'listings__results' },
-          this.displayListings()
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'section',
+            { className: 'listings__results' },
+            this.displayListings()
+          )
         ),
         _react2.default.createElement(
           'section',
@@ -584,7 +589,7 @@ var listings_data = [{
   bedrooms: 4,
   price: 220000,
   squareSpace: 2100,
-  amenities: ['elevator', 'gym'],
+  amenities: ['finished_basement', 'swimming_pool'],
   property_type: 'House',
   image: 'https://3ka9112lpy6c1dcyvb2ouv2u-wpengine.netdna-ssl.com/wp-content/uploads/2015/06/3-1128x640.jpg'
 }, {
@@ -614,7 +619,7 @@ var listings_data = [{
   bedrooms: 2,
   price: 800000,
   squareSpace: 1500,
-  amenities: ['elevator', 'gym'],
+  amenities: ['elevator'],
   property_type: 'Retail',
   image: 'https://q-fa.bstatic.com/xdata/images/hotel/max1024x768/137854837.jpg?k=b7d5d2e6166a7dcd60e2229180e0c513f5d1e3400567fd36ce8fa0f1976c641a&o='
 }, {
@@ -644,7 +649,7 @@ var listings_data = [{
   bedrooms: 3.5,
   price: 380000,
   squareSpace: 1100,
-  amenities: ['elevator', 'gym'],
+  amenities: ['elevator'],
   property_type: 'Condo',
   image: 'https://ap.rdcpix.com/2071081727/0b2f38ca9c99491967f8daa641b305a6l-m0xd-w1020_h770_q80.jpg'
 }, {
@@ -659,7 +664,7 @@ var listings_data = [{
   bedrooms: 5,
   price: 920000,
   squareSpace: 1350,
-  amenities: ['elevator', 'gym'],
+  amenities: [],
   property_type: 'Apartment',
   image: 'https://thenypost.files.wordpress.com/2014/11/home2.jpg?quality=90&strip=all&w=618&h=410&crop=1'
 }, {
@@ -674,7 +679,7 @@ var listings_data = [{
   bedrooms: 2,
   price: 1200000,
   squareSpace: 1500,
-  amenities: ['elevator', 'gym'],
+  amenities: ['elevator', 'gym', 'finished_basement', 'swimming_pool'],
   property_type: 'Townhouse',
   image: 'https://cdn-img0.streeteasy.com/nyc/image/48/332245048.jpg'
 }];
@@ -849,6 +854,29 @@ var App = function (_Component) {
       if (this.state.sort_by === 'price-asc') {
         newData = newData.sort(function (a, b) {
           return a.price - b.price;
+        });
+      }
+
+      if (this.state.finished_basement) {
+        newData = newData.filter(function (listing) {
+          return listing.amenities.includes('finished_basement');
+        });
+      }
+      if (this.state.gym) {
+        newData = newData.filter(function (listing) {
+          return listing.amenities.includes('gym');
+        });
+      }
+
+      if (this.state.swimming_pool) {
+        newData = newData.filter(function (listing) {
+          return listing.amenities.includes('swimming_pool');
+        });
+      }
+
+      if (this.state.elevator) {
+        newData = newData.filter(function (listing) {
+          return listing.amenities.includes('elevator');
         });
       }
 
